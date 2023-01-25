@@ -1,5 +1,5 @@
-let blueChips = 20
-let redChips = 20
+let blueChips = 10
+let redChips = 10
 let playerTurn = 'Blue'
 let blueRolled = []
 let redRolled = []
@@ -53,8 +53,31 @@ const checkScore = (blue, red) => {
         } else {
             redScore += num
         }
-    
     })
+    // If someone has Zanzibar
+    if ((blue === [4,5,6]) && (red != blue)) {
+        blueChips -= 4
+        redChips += 4
+    } else if ((red === [4,5,6]) && (blue != red)) {
+        redChips -= 4
+        blueChips += 4
+    } else if ((red === [4,5,6]) && (red === blue)) {
+
+    }
+
+    // If someone has 3 of a kind
+    if (((blue[0] === blue[1]) && (blue[1] === blue[2])) && ((red[0] === red[1]) && (red[1] != red[2]))) {
+        blueChips -= 3
+        redChips += 3
+    } else if (((red[0] === red[1]) && (red[1] === red[2])) && ((blue[0] === blue[1]) && (blue[1] != red[2]))) {
+        redChips -= 3
+        blueChips += 3
+    }
+
+
+    
+
+
 }
 
 
