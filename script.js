@@ -62,7 +62,7 @@ const checkScore = (blue, red) => {
         redChips -= 4
         blueChips += 4
     } else if ((red === [4,5,6]) && (red === blue)) {
-
+        //draw, deal with later
     }
 
     // If someone has 3 of a kind
@@ -72,6 +72,16 @@ const checkScore = (blue, red) => {
     } else if (((red[0] === red[1]) && (red[1] === red[2])) && ((blue[0] === blue[1]) && (blue[1] != red[2]))) {
         redChips -= 3
         blueChips += 3
+    } else if (((red[0] === red[1]) && (red[1] === red[2])) && ((blue[0] === blue[1]) && (blue[1] === red[2]))) {
+        if (red[0] < blue[0]) {
+            redChips -= 3
+            blueChips += 3
+        } else if (red[0] > blue[0]) {
+            blueChips -= 3
+            redChips += 3
+        } else {
+            //draw, deal with later
+        }
     }
 
 
