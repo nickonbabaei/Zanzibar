@@ -31,12 +31,46 @@ body {
 }
 
 .roll {
-    
     position: relative;
     padding: 1%;
     right: -150px;
     top: 50px;
     color: blue;
     margin: auto;
+}
+
+.dice {
+    display: flex;
+    justify-content: center;
+    bottom: 500px;
+    margin-top: 50px;
+    margin-left: 35px;
+}
+
+.dice-1 {
+    width: 50px;
+    height: 50px;
+    border: 2px solid black;
+    margin-right: 5px;
+    text-align: center;
+    font-size: 40px;
+    
+}
+
+.dice-2 {
+    width: 50px;
+    height: 50px;
+    border: 2px solid black;
+    text-align: center;
+    font-size: 40px;
+}
+
+.dice-3 {
+    width: 50px;
+    height: 50px;
+    margin-left: 5px;
+    border: 2px solid black;
+    text-align: center;
+    font-size: 40px;
     
 }
