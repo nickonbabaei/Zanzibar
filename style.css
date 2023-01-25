@@ -1,1 +1,13 @@
+.player-1-chips {
+    margin: 3%;
+    position: relative;
+    width: 60px;
+}
 
+.chip-count-1 {
+    position: absolute;
+    color: white;
+    top: 20px;
+    right: 1px;
+    
+}
