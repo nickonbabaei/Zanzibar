@@ -17,21 +17,44 @@ const roll = () => {
         diceRoll3 = Math.floor((Math.random() * 6)+1)
         blueRolled = [diceRoll1, diceRoll2, diceRoll3]
         blueRolled.sort((a,b)=>a-b)
-        dice1.innerHTML = blueRolled[0]
-        dice2.innerHTML = blueRolled[1]
-        dice3.innerHTML = blueRolled[2]
+        dice1.innerHTML = parseInt(blueRolled[0])
+        dice2.innerHTML = parseInt(blueRolled[1])
+        dice3.innerHTML = parseInt(blueRolled[2])
     } else {
         diceRoll1 = Math.floor((Math.random() * 6)+1)
         diceRoll2 = Math.floor((Math.random() * 6)+1)
         diceRoll3 = Math.floor((Math.random() * 6)+1)
         redRolled = [diceRoll1, diceRoll2, diceRoll3]
         redRolled.sort((a,b)=>a-b)
-        dice1.innerHTML = redRolled[0]
-        dice2.innerHTML = redRolled[1]
-        dice3.innerHTML = redRolled[2]
+        dice1.innerHTML = parseInt(redRolled[0])
+        dice2.innerHTML = parseInt(redRolled[1])
+        dice3.innerHTML = parseInt(redRolled[2])
         console.log(blueRolled)
-        console.log(redRolled)
+        checkScore(blueRolled, redRolled)
     }
+}
+
+const checkScore = (blue, red) => {
+    let blueScore = 0
+    let redScore = 0
+    blue.forEach(num => {
+        if (num === 1) {
+            blueScore += 100
+        } else if (num === 6) {
+            blueScore += 60
+        } else {
+            blueScore += num
+        }
+    red.forEach(num => {
+        if (num === 1) {
+            redScore += 100
+        } else if (num === 6) {
+            redScore += 60
+        } else {
+            redScore += num
+        }
+    
+    })
 }
 
 
