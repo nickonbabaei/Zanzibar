@@ -20,7 +20,7 @@ body {
     margin: auto;
     position: relative;
     width: 60px;
-   bottom: 70px;
+   bottom: 75px;
 }
 
 .chip-count-2 {
@@ -28,5 +28,15 @@ body {
     color: white;
     top: 20px;
     right: 1px;
+}
+
+.roll {
+    
+    position: relative;
+    padding: 1%;
+    right: -150px;
+    top: 50px;
+    color: blue;
+    margin: auto;
     
 }
