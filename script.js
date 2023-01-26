@@ -14,18 +14,14 @@ const toRoll = document.querySelector('.roll')
 const blueChipCount = document.querySelector('.chip-count-1')
 const redChipCount = document.querySelector('.chip-count-2')
 const rollTurn = document.querySelector('#color-roll')
+const description = document.querySelector('.description').innerHTML 
 
 const drawMessage = () => {
-    document.querySelector('.description').innerHTML = `Player blue rolled ${blueRolled[0]},${blueRolled[1]},${blueRolled[2]} scoring ${blueScore} points. Player red rolled ${redRolled[0]},${redRolled[1]},${redRolled[2]} scoring ${redScore} points. This round is a draw!`
+    description.innerHTML = `Player blue rolled ${blueRolled[0]},${blueRolled[1]},${blueRolled[2]} scoring ${blueScore} points. Player red rolled ${redRolled[0]},${redRolled[1]},${redRolled[2]} scoring ${redScore} points. This round is a draw!`
 }
 
-const zanzibarMessage = () => {
-    if ((blueScore === 69) && (redScore != 69)) {
-        document.querySelector('.description').innerHTML = `Player blue rolled Zanzibar! Player red hands over 4 chips.`
-    } else if ((redScore === 69) && (blueScore != 69)) {
-        document.querySelector('.description').innerHTML = `Player red rolled Zanzibar! Player blue hands over 4 chips.`
-    }
-}
+
+
 
 const roll = () => {
     if (gameFlag) {
@@ -80,33 +76,40 @@ const checkScore = (blue, red) => {
             redScore += num
         }
     })
-    console.log(blue)
-    console.log(red)
-    console.log(blueScore)
-    console.log(redScore)
-
-
-
+  
     // Deal with special combinations
 
-    // If someone has Zanzibar
-    if ((blue === [4,5,6]) && (red != blue)) {
+    // If someone rolls Zanzibar
+    if ((blueScore === 69) && (redScore != blueScore)) {
+        description.innerHTML = `Player blue rolled Zanzibar! Player red hands over 4 chips.`
         blueChips -= 4
         redChips += 4
+        if (redChips <= 0) {
+            redWins()
+        } else if (blueChips <= 0) {
+            blueWins()
+        }
         blueChipCount.innerHTML = blueChips
         redChipCount.innerHTML = redChips
         return
-    } else if ((red === [4,5,6]) && (blue != red)) {
+    } else if ((redScore === 69) && (blueScore != redScore)) {
+        description.innerHTML = `Player red rolled Zanzibar! Player blue hands over 4 chips.`
         redChips -= 4
         blueChips += 4
+        if (redChips <= 0) {
+            redWins()
+        } else if (blueChips <= 0) {
+            blueWins()
+        }
         blueChipCount.innerHTML = blueChips
         redChipCount.innerHTML = redChips
         return
-    } else if ((red === [4,5,6]) && (red === blue)) {
-        //draw, deal with later
+    } else if ((redScore === 69) && (redScore === blueScore)) {
+        description.innerHTML = `Both players rolled zanzibar, what are the odds!?!? This round is a draw`
+        return
     }
 
-    // If someone has 3 of a kind
+    // If someone rolls 3 of a kind
     if (((blue[0] === blue[1]) && (blue[1] === blue[2])) && ((red[0] === red[1]) && (red[1] != red[2]))) {
         blueChips -= 3
         redChips += 3
@@ -177,10 +180,8 @@ const checkScore = (blue, red) => {
         blueChipCount.innerHTML = blueChips
         redChipCount.innerHTML = redChips
     } else if (blueScore === redScore) {
-        //draw, deal with later
+        drawMessage()
     }
-    console.log(blueChips)
-    console.log(redChips)
 
 }
 
