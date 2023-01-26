@@ -1,6 +1,6 @@
 let gameFlag = true
-let blueChips = 10
-let redChips = 10
+let blueChips = 5
+let redChips = 5
 let blueRolled = []
 let redRolled = []
 let blueScore = 0
@@ -38,7 +38,6 @@ const roll = () => {
     if (gameFlag) {
         rollCount++
         if (rollCount % 2 === 1) {
-            winner.style.color = 'black'
             rollTurn.innerHTML = 'Reds'
             diceRoll1 = Math.floor((Math.random() * 6)+1)
             diceRoll2 = Math.floor((Math.random() * 6)+1)
@@ -199,29 +198,34 @@ const checkScore = (blue, red) => {
 
 
 const redWins = () => {
-    winner.innerHTML = `Player red wins!`
+    winner.innerHTML = `Player red wins! Restart game to play again.`
+    winner.style.color = 'black'
     redChips = 0
-    blueChips = 20
+    blueChips = 10
     gameFlag = false
 }
 
 const blueWins = () => {
-    winner.innerHTML = `Player blue wins!`
+    winner.innerHTML = `Player blue wins! Restart game to play again`
+    winner.style.color = 'black'
     blueChips = 0
-    redChips = 20
+    redChips = 10
     gameFlag = false
 }
 
 const restartGame = () => {
-    blueChips = 10
-    redChips = 10 
+    blueChips = 5
+    redChips = 5
     rollCount = 0
     roundCount = 1
+    winner.style.color = 'white'
+    document.querySelector('.count').innerHTML = roundCount
     dice1.innerHTML = '?'
     dice2.innerHTML = '?'
     dice3.innerHTML = '?'
-    blueChipCount.innerHTML = 10
-    redChipCount.innerHTML = 10
+    description.innerHTML = 'Player blue, roll to start the game!'
+    blueChipCount.innerHTML = 5
+    redChipCount.innerHTML = 5
     gameFlag = true
 }
 
