@@ -7,11 +7,15 @@ const dice1 = document.querySelector('.dice-1')
 const dice2 = document.querySelector('.dice-2')
 const dice3 = document.querySelector('.dice-3')
 const toRoll = document.querySelector('.roll')
+const blueChipCount = document.querySelector('.chip-count-1')
+const redChipCount = document.querySelector('.chip-count-2')
+const rollTurn = document.querySelector('#color-roll')
 let rollCount = 0
 
 const roll = () => {
     rollCount++
     if (rollCount % 2 === 1) {
+        rollTurn.innerHTML = 'Reds'
         diceRoll1 = Math.floor((Math.random() * 6)+1)
         diceRoll2 = Math.floor((Math.random() * 6)+1)
         diceRoll3 = Math.floor((Math.random() * 6)+1)
@@ -21,6 +25,7 @@ const roll = () => {
         dice2.innerHTML = parseInt(blueRolled[1])
         dice3.innerHTML = parseInt(blueRolled[2])
     } else {
+        rollTurn.innerHTML = 'Blues'
         diceRoll1 = Math.floor((Math.random() * 6)+1)
         diceRoll2 = Math.floor((Math.random() * 6)+1)
         diceRoll3 = Math.floor((Math.random() * 6)+1)
@@ -29,14 +34,15 @@ const roll = () => {
         dice1.innerHTML = parseInt(redRolled[0])
         dice2.innerHTML = parseInt(redRolled[1])
         dice3.innerHTML = parseInt(redRolled[2])
-        console.log(blueRolled)
         checkScore(blueRolled, redRolled)
     }
 }
 
 const checkScore = (blue, red) => {
+    
     let blueScore = 0
     let redScore = 0
+    // Calculate score for blue
     blue.forEach(num => {
         if (num === 1) {
             blueScore += 100
@@ -45,6 +51,8 @@ const checkScore = (blue, red) => {
         } else {
             blueScore += num
         }
+    })
+    // Calculate score for red
     red.forEach(num => {
         if (num === 1) {
             redScore += 100
@@ -54,13 +62,28 @@ const checkScore = (blue, red) => {
             redScore += num
         }
     })
+    console.log(blue)
+    console.log(red)
+    console.log(blueScore)
+    console.log(redScore)
+
+
+
+    // Deal with special combinations
+
     // If someone has Zanzibar
     if ((blue === [4,5,6]) && (red != blue)) {
         blueChips -= 4
         redChips += 4
+        blueChipCount.innerHTML = blueChips
+        redChipCount.innerHTML = redChips
+        return
     } else if ((red === [4,5,6]) && (blue != red)) {
         redChips -= 4
         blueChips += 4
+        blueChipCount.innerHTML = blueChips
+        redChipCount.innerHTML = redChips
+        return
     } else if ((red === [4,5,6]) && (red === blue)) {
         //draw, deal with later
     }
@@ -69,16 +92,28 @@ const checkScore = (blue, red) => {
     if (((blue[0] === blue[1]) && (blue[1] === blue[2])) && ((red[0] === red[1]) && (red[1] != red[2]))) {
         blueChips -= 3
         redChips += 3
+        blueChipCount.innerHTML = blueChips
+        redChipCount.innerHTML = redChips
+        return
     } else if (((red[0] === red[1]) && (red[1] === red[2])) && ((blue[0] === blue[1]) && (blue[1] != red[2]))) {
         redChips -= 3
         blueChips += 3
+        blueChipCount.innerHTML = blueChips
+        redChipCount.innerHTML = redChips
+        return
     } else if (((red[0] === red[1]) && (red[1] === red[2])) && ((blue[0] === blue[1]) && (blue[1] === red[2]))) {
         if (red[0] < blue[0]) {
             redChips -= 3
             blueChips += 3
+            blueChipCount.innerHTML = blueChips
+            redChipCount.innerHTML = redChips
+            return
         } else if (red[0] > blue[0]) {
             blueChips -= 3
             redChips += 3
+            blueChipCount.innerHTML = blueChips
+            redChipCount.innerHTML = redChips
+            return
         } else {
             //draw, deal with later
         }
@@ -88,17 +123,40 @@ const checkScore = (blue, red) => {
     if ((blue === [1,2,3]) && (red != blue)) {
         blueChips -= 2
         redChips += 2
+        blueChipCount.innerHTML = blueChips
+        redChipCount.innerHTML = redChips
+        return
     } else if ((red === [1,2,3]) && (blue != red)) {
         redChips -= 2
         blueChips -= 2
+        blueChipCount.innerHTML = blueChips
+        redChipCount.innerHTML = redChips
+        return
     } else if ((red === [1,2,3]) && (blue === [1,2,3])) {
         //draw, deal with later
     }
 
+    // If no special combination rolled 
+    if (redScore > blueScore) {
+        redChips -= 1
+        blueChips += 1
+        blueChipCount.innerHTML = blueChips
+        redChipCount.innerHTML = redChips
+    } else if (blueScore > redScore) {
+        blueChips -= 1
+        redChips += 1
+        blueChipCount.innerHTML = blueChips
+        redChipCount.innerHTML = redChips
+    } else if (blueScore === redScore) {
+        //draw, deal with later
+    }
+    console.log(blueChips)
+    console.log(redChips)
 
+}
+
+const endGame = () => {
     
-
-
 }
 
 
