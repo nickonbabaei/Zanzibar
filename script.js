@@ -1,3 +1,4 @@
+let gameFlag = true
 let blueChips = 10
 let redChips = 10
 let playerTurn = 'Blue'
@@ -13,28 +14,32 @@ const rollTurn = document.querySelector('#color-roll')
 let rollCount = 0
 
 const roll = () => {
-    rollCount++
-    if (rollCount % 2 === 1) {
-        rollTurn.innerHTML = 'Reds'
-        diceRoll1 = Math.floor((Math.random() * 6)+1)
-        diceRoll2 = Math.floor((Math.random() * 6)+1)
-        diceRoll3 = Math.floor((Math.random() * 6)+1)
-        blueRolled = [diceRoll1, diceRoll2, diceRoll3]
-        blueRolled.sort((a,b)=>a-b)
-        dice1.innerHTML = parseInt(blueRolled[0])
-        dice2.innerHTML = parseInt(blueRolled[1])
-        dice3.innerHTML = parseInt(blueRolled[2])
+    if (gameFlag) {
+        rollCount++
+        if (rollCount % 2 === 1) {
+            rollTurn.innerHTML = 'Reds'
+            diceRoll1 = Math.floor((Math.random() * 6)+1)
+            diceRoll2 = Math.floor((Math.random() * 6)+1)
+            diceRoll3 = Math.floor((Math.random() * 6)+1)
+            blueRolled = [diceRoll1, diceRoll2, diceRoll3]
+            blueRolled.sort((a,b)=>a-b)
+            dice1.innerHTML = parseInt(blueRolled[0])
+            dice2.innerHTML = parseInt(blueRolled[1])
+            dice3.innerHTML = parseInt(blueRolled[2])
+        } else {
+            rollTurn.innerHTML = 'Blues'
+            diceRoll1 = Math.floor((Math.random() * 6)+1)
+            diceRoll2 = Math.floor((Math.random() * 6)+1)
+            diceRoll3 = Math.floor((Math.random() * 6)+1)
+            redRolled = [diceRoll1, diceRoll2, diceRoll3]
+            redRolled.sort((a,b)=>a-b)
+            dice1.innerHTML = parseInt(redRolled[0])
+            dice2.innerHTML = parseInt(redRolled[1])
+            dice3.innerHTML = parseInt(redRolled[2])
+            checkScore(blueRolled, redRolled)
+        }
     } else {
-        rollTurn.innerHTML = 'Blues'
-        diceRoll1 = Math.floor((Math.random() * 6)+1)
-        diceRoll2 = Math.floor((Math.random() * 6)+1)
-        diceRoll3 = Math.floor((Math.random() * 6)+1)
-        redRolled = [diceRoll1, diceRoll2, diceRoll3]
-        redRolled.sort((a,b)=>a-b)
-        dice1.innerHTML = parseInt(redRolled[0])
-        dice2.innerHTML = parseInt(redRolled[1])
-        dice3.innerHTML = parseInt(redRolled[2])
-        checkScore(blueRolled, redRolled)
+        return
     }
 }
 
@@ -140,6 +145,14 @@ const checkScore = (blue, red) => {
     if (redScore > blueScore) {
         redChips -= 1
         blueChips += 1
+        if (redChips <= 0) {
+            redChipCount.innerHTML = 0
+            redWins()
+        
+        } else if (blueChips <= 0) {
+            blueChipCount.innerHTML = 0
+            blueWins()
+        }
         blueChipCount.innerHTML = blueChips
         redChipCount.innerHTML = redChips
     } else if (blueScore > redScore) {
@@ -155,8 +168,24 @@ const checkScore = (blue, red) => {
 
 }
 
-const endGame = () => {
-    
+const redWins = () => {
+    // print red wins
+    gameFlag = false
+}
+
+const blueWins = () => {
+    // print blue wins
+    gameFlag = false
+}
+
+const restartGame = () => {
+    blueChips = 10
+    redChips = 10 
+    rollCount = 0
+    dice1.innerHTML = '?'
+    dice2.innerHTML = '?'
+    dice3.innerHTML = '?'
+    gameFlag = true
 }
 
 
