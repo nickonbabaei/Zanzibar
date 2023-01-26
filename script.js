@@ -84,6 +84,17 @@ const checkScore = (blue, red) => {
         }
     }
 
+    // If 1,2,3 is rolled
+    if ((blue === [1,2,3]) && (red != blue)) {
+        blueChips -= 2
+        redChips += 2
+    } else if ((red === [1,2,3]) && (blue != red)) {
+        redChips -= 2
+        blueChips -= 2
+    } else if ((red === [1,2,3]) && (blue === [1,2,3])) {
+        //draw, deal with later
+    }
+
 
     
 
