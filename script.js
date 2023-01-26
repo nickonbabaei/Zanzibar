@@ -14,7 +14,7 @@ const toRoll = document.querySelector('.roll')
 const blueChipCount = document.querySelector('.chip-count-1')
 const redChipCount = document.querySelector('.chip-count-2')
 const rollTurn = document.querySelector('#color-roll')
-const description = document.querySelector('.description').innerHTML 
+const description = document.querySelector('.description')
 
 const drawMessage = () => {
     description.innerHTML = `Player blue rolled ${blueRolled[0]},${blueRolled[1]},${blueRolled[2]} scoring ${blueScore} points. Player red rolled ${redRolled[0]},${redRolled[1]},${redRolled[2]} scoring ${redScore} points. This round is a draw!`
@@ -76,7 +76,7 @@ const checkScore = (blue, red) => {
             redScore += num
         }
     })
-  
+    
     // Deal with special combinations
 
     // If someone rolls Zanzibar
@@ -182,6 +182,12 @@ const checkScore = (blue, red) => {
     } else if (blueScore === redScore) {
         drawMessage()
     }
+    console.log(blue)
+    console.log(red)
+    console.log(blueScore)
+    console.log(redScore)
+    console.log(blueChips)
+    console.log(redChips)
 
 }
 
