@@ -4,6 +4,9 @@ let redChips = 10
 let playerTurn = 'Blue'
 let blueRolled = []
 let redRolled = []
+let blueScore = 0
+let redScore = 0
+let rollCount = 0
 const dice1 = document.querySelector('.dice-1')
 const dice2 = document.querySelector('.dice-2')
 const dice3 = document.querySelector('.dice-3')
@@ -11,7 +14,18 @@ const toRoll = document.querySelector('.roll')
 const blueChipCount = document.querySelector('.chip-count-1')
 const redChipCount = document.querySelector('.chip-count-2')
 const rollTurn = document.querySelector('#color-roll')
-let rollCount = 0
+
+const drawMessage = () => {
+    document.querySelector('.description').innerHTML = `Player blue rolled ${blueRolled[0]},${blueRolled[1]},${blueRolled[2]} scoring ${blueScore} points. Player red rolled ${redRolled[0]},${redRolled[1]},${redRolled[2]} scoring ${redScore} points. This round is a draw!`
+}
+
+const zanzibarMessage = () => {
+    if ((blueScore === 69) && (redScore != 69)) {
+        document.querySelector('.description').innerHTML = `Player blue rolled Zanzibar! Player red hands over 4 chips.`
+    } else if ((redScore === 69) && (blueScore != 69)) {
+        document.querySelector('.description').innerHTML = `Player red rolled Zanzibar! Player blue hands over 4 chips.`
+    }
+}
 
 const roll = () => {
     if (gameFlag) {
@@ -44,9 +58,8 @@ const roll = () => {
 }
 
 const checkScore = (blue, red) => {
-    
-    let blueScore = 0
-    let redScore = 0
+    blueScore = 0
+    redScore = 0
     // Calculate score for blue
     blue.forEach(num => {
         if (num === 1) {
@@ -146,11 +159,9 @@ const checkScore = (blue, red) => {
         redChips -= 1
         blueChips += 1
         if (redChips <= 0) {
-            redChipCount.innerHTML = 0
             redWins()
         
         } else if (blueChips <= 0) {
-            blueChipCount.innerHTML = 0
             blueWins()
         }
         blueChipCount.innerHTML = blueChips
@@ -159,10 +170,8 @@ const checkScore = (blue, red) => {
         blueChips -= 1
         redChips += 1
         if (redChips <= 0) {
-            redChipCount.innerHTML = 0
             redWins()
         } else if (blueChips <= 0) {
-            blueChipCount.innerHTML = 0
             blueWins()
         }
         blueChipCount.innerHTML = blueChips
