@@ -169,12 +169,12 @@ const checkScore = (blue, red) => {
 }
 
 const redWins = () => {
-    // print red wins
+    // print red wins and if like to restart
     gameFlag = false
 }
 
 const blueWins = () => {
-    // print blue wins
+    // print blue wins and like to restart
     gameFlag = false
 }
 
