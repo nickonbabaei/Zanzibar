@@ -177,12 +177,18 @@ const checkScore = (blue, red) => {
 
 const redWins = () => {
     // print red wins and if like to restart
+    redChips = 0
+    blueChips = 20
     gameFlag = false
+    
 }
 
 const blueWins = () => {
     // print blue wins and like to restart
+    blueChips = 0
+    redChips = 20
     gameFlag = false
+    
 }
 
 const restartGame = () => {

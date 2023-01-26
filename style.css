@@ -7,7 +7,7 @@ body {
     position: relative;
     right: -100px;
     width: 60px;
-    top: 405px;
+    top: 485px;
 }
 
 .chip-count-1 {
@@ -22,7 +22,7 @@ body {
     position: relative;
     right: -100px;
     width: 60px;
-   bottom: 150px;
+   bottom: 80px;
 }
 
 .chip-count-2 {
@@ -36,16 +36,15 @@ body {
     position: relative;
     padding: 1%;
     right: -250px;
-    top: 150px;
+    top: 200px;
     margin: auto;
 }
 
 .dice {
     display: flex;
     justify-content: center;
-    bottom: 500px;
-    
-    margin-left: 235px;
+    margin-top: 70px;
+    margin-left: 245px;
 }
 
 .dice-1 {
@@ -76,13 +75,16 @@ body {
 }
 
 .container {
-    position: relative;
-    width: 200px;
+    position: absolute;
+    margin-left: 40px;
+    width: 350px;
+    height: 400px;
+    bottom: 120px;
 }
 
 .restart-game {
     position: relative;
-    bottom: -150px;
+    bottom: -200px;
     padding: 1%;
 }
 
