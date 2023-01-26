@@ -20,6 +20,7 @@ const drawMessage = () => {
     description.innerHTML = `Player blue rolled ${blueRolled[0]},${blueRolled[1]},${blueRolled[2]} scoring ${blueScore} points. Player red rolled ${redRolled[0]},${redRolled[1]},${redRolled[2]} scoring ${redScore} points. This round is a draw!`
 }
 
+
 const checkWin = (b,r) => {
     if (b <= 0) {
         console.log('blue wins')
@@ -90,7 +91,7 @@ const checkScore = (blue, red) => {
 
     // If someone rolls Zanzibar
     if ((blueScore === 69) && (redScore != blueScore)) {
-        description.innerHTML = `Player blue rolled Zanzibar! Player red hands over 4 chips.`
+        description.innerHTML = `Player blue rolled Zanzibar! Player blue wins this round and player red gains 4 chips.`
         blueChips -= 4
         redChips += 4
         checkWin(blueChips,redChips)
@@ -98,7 +99,7 @@ const checkScore = (blue, red) => {
         redChipCount.innerHTML = redChips
         return
     } else if ((redScore === 69) && (blueScore != redScore)) {
-        description.innerHTML = `Player red rolled Zanzibar! Player blue hands over 4 chips.`
+        description.innerHTML = `Player red rolled Zanzibar! Player red wins this round and player blue gains 4 chips.`
         redChips -= 4
         blueChips += 4
         checkWin(blueChips,redChips)
@@ -106,7 +107,7 @@ const checkScore = (blue, red) => {
         redChipCount.innerHTML = redChips
         return
     } else if ((redScore === 69) && (redScore === blueScore)) {
-        description.innerHTML = `Both players rolled zanzibar, what are the odds!?!? This round is a draw`
+        description.innerHTML = `Both players rolled zanzibar, what are the odds!?!? This round is a draw!`
         return
     }
 
@@ -114,37 +115,45 @@ const checkScore = (blue, red) => {
     if ((blue[0] === blue[1]) && (blue[1] === blue[2])) {
         if ((red[0] === red[1]) && (red[1] === red[2])) {
             if (red[0] > blue[0]) {
+                description.innerHTML = `Both players rolled a three of a kind! Player blues three of a kind is of higher rank though. Player blue wins this round and player red gains 3 chips.`
                 blueChips -= 3
                 redChips += 3
                 checkWin(blueChips,redChips)
+                blueChipCount.innerHTML = blueChips
+                redChipCount.innerHTML = redChips
+                return
             } else if (red[0] < blue[0]) {
+                description.innerHTML = `Both players rolled a three of a kind! Player reds three of a kind is of higher rank though. Player red wins this round and player blue gains 3 chips.`
                 redChips -= 3
                 blueChips += 3
                 checkWin(blueChips,redChips)
+                blueChipCount.innerHTML = blueChips
+                redChipCount.innerHTML = redChips
+                return
+            } else if (red[0] === blue[0]) {
+                description.innerHTML = `Both players rolled the exact same three of a kind! Wow, what are the odds?! This round is a draw!`
+                return
             }
         } else {
+            description.innerHTML = `Player blue rolled ${blue[0]},${blue[1]},${blue[2]}! A three of a kind! Player blue wins this round and player red gains 3 chips.`
             blueChips -= 3
             redChips += 3
             checkWin(blueChips,redChips)
+            blueChipCount.innerHTML = blueChips
+            redChipCount.innerHTML = redChips
+            return
         }  
     
     } else if ((red[0] === red[1]) && (red[1] === red[2])) {
-        if ((blue[0] === blue[1]) && (blue[1] === blue[2])) {
-            if (red[0] > blue[0]) {
-                blueChips -= 3
-                redChips += 3
-                checkWin(blueChips,redChips)
-            } else if (red[0] < blue[0]) {
-                redChips -= 3
-                blueChips += 3
-                checkWin(blueChips,redChips)
-            }
-        } else {
+            description.innerHTML = `Player red rolled ${red[0]},${red[1]},${red[2]}! A three of a kind! Player red wins this round and player blue gains 3 chips.`
             redChips -= 3
             blueChips += 3
             checkWin(blueChips,redChips)
+            blueChipCount.innerHTML = blueChips
+            redChipCount.innerHTML = redChips
+            return
         }
-    }
+    
 
     // If 1,2,3 is rolled
     if ((blue === [1,2,3]) && (red != blue)) {
@@ -165,19 +174,22 @@ const checkScore = (blue, red) => {
 
     // If no special combination rolled 
     if (redScore > blueScore) {
-        redChips -= 12
-        blueChips += 12
+        description.innerHTML = `Player blue rolled ${blueRolled[0]},${blueRolled[1]},${blueRolled[2]} scoring ${blueScore} points. Player red rolled ${redRolled[0]},${redRolled[1]},${redRolled[2]} scoring ${redScore} points. Player red wins this round and player blue gains a chip!`
+        redChips -= 1
+        blueChips += 1
         checkWin(blueChips,redChips)
         blueChipCount.innerHTML = blueChips
         redChipCount.innerHTML = redChips
     } else if (blueScore > redScore) {
-        blueChips -= 12
-        redChips += 12
+        description.innerHTML = `Player blue rolled ${blueRolled[0]},${blueRolled[1]},${blueRolled[2]} scoring ${blueScore} points. Player red rolled ${redRolled[0]},${redRolled[1]},${redRolled[2]} scoring ${redScore} points. Player blue wins this round and player red gains a chip!`
+        blueChips -= 1
+        redChips += 1
         checkWin(blueChips,redChips)
         blueChipCount.innerHTML = blueChips
         redChipCount.innerHTML = redChips
     } else if (blueScore === redScore) {
         drawMessage()
+        return
     }
     console.log(blue)
     console.log(red)
@@ -185,8 +197,8 @@ const checkScore = (blue, red) => {
     console.log(redScore)
     console.log(blueChips)
     console.log(redChips)
-
 }
+
 
 const redWins = () => {
     // print red wins and if like to restart
