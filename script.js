@@ -6,6 +6,7 @@ let redRolled = []
 let blueScore = 0
 let redScore = 0
 let rollCount = 0
+let roundCount = 1
 const dice1 = document.querySelector('.dice-1')
 const dice2 = document.querySelector('.dice-2')
 const dice3 = document.querySelector('.dice-3')
@@ -16,24 +17,28 @@ const rollTurn = document.querySelector('#color-roll')
 const description = document.querySelector('.description')
 const winner = document.querySelector('.winner')
 
+
 const drawMessage = () => {
     description.innerHTML = `Player blue rolled ${blueRolled[0]},${blueRolled[1]},${blueRolled[2]} scoring ${blueScore} points. Player red rolled ${redRolled[0]},${redRolled[1]},${redRolled[2]} scoring ${redScore} points. This round is a draw!`
 }
 
 const checkWin = (b,r) => {
     if (b <= 0) {
+        roundCount--
+        document.querySelector('.count').innerHTML = roundCount
         blueWins()
     } else if (r <= 0) {
+        roundCount--
+        document.querySelector('.count').innerHTML = roundCount
         redWins()
     }
 }
-
-
 
 const roll = () => {
     if (gameFlag) {
         rollCount++
         if (rollCount % 2 === 1) {
+            winner.style.color = 'black'
             rollTurn.innerHTML = 'Reds'
             diceRoll1 = Math.floor((Math.random() * 6)+1)
             diceRoll2 = Math.floor((Math.random() * 6)+1)
@@ -61,6 +66,8 @@ const roll = () => {
 }
 
 const checkScore = (blue, red) => {
+    roundCount++
+    document.querySelector('.count').innerHTML = roundCount
     blueScore = 0
     redScore = 0
     // Calculate score for blue
@@ -196,7 +203,6 @@ const redWins = () => {
     redChips = 0
     blueChips = 20
     gameFlag = false
-    
 }
 
 const blueWins = () => {
@@ -204,13 +210,13 @@ const blueWins = () => {
     blueChips = 0
     redChips = 20
     gameFlag = false
-    
 }
 
 const restartGame = () => {
     blueChips = 10
     redChips = 10 
     rollCount = 0
+    roundCount = 1
     dice1.innerHTML = '?'
     dice2.innerHTML = '?'
     dice3.innerHTML = '?'
