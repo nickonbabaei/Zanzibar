@@ -37,7 +37,6 @@ body {
     padding: 1%;
     right: -250px;
     top: 150px;
-    color: blue;
     margin: auto;
 }
 
@@ -79,6 +78,12 @@ body {
 .container {
     position: relative;
     width: 200px;
+}
+
+.restart-game {
+    position: relative;
+    bottom: -150px;
+    padding: 1%;
 }
 
 

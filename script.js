@@ -158,6 +158,13 @@ const checkScore = (blue, red) => {
     } else if (blueScore > redScore) {
         blueChips -= 1
         redChips += 1
+        if (redChips <= 0) {
+            redChipCount.innerHTML = 0
+            redWins()
+        } else if (blueChips <= 0) {
+            blueChipCount.innerHTML = 0
+            blueWins()
+        }
         blueChipCount.innerHTML = blueChips
         redChipCount.innerHTML = redChips
     } else if (blueScore === redScore) {
@@ -185,6 +192,8 @@ const restartGame = () => {
     dice1.innerHTML = '?'
     dice2.innerHTML = '?'
     dice3.innerHTML = '?'
+    blueChipCount.innerHTML = 10
+    redChipCount.innerHTML = 10
     gameFlag = true
 }
 
@@ -194,3 +203,5 @@ const restartGame = () => {
 toRoll.addEventListener('click', () => {
     roll()
 })
+
+document.querySelector('.restart-game').addEventListener('click', restartGame)
