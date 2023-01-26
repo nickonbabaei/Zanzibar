@@ -1,7 +1,6 @@
 let gameFlag = true
 let blueChips = 10
 let redChips = 10
-let playerTurn = 'Blue'
 let blueRolled = []
 let redRolled = []
 let blueScore = 0
@@ -15,18 +14,16 @@ const blueChipCount = document.querySelector('.chip-count-1')
 const redChipCount = document.querySelector('.chip-count-2')
 const rollTurn = document.querySelector('#color-roll')
 const description = document.querySelector('.description')
+const winner = document.querySelector('.winner')
 
 const drawMessage = () => {
     description.innerHTML = `Player blue rolled ${blueRolled[0]},${blueRolled[1]},${blueRolled[2]} scoring ${blueScore} points. Player red rolled ${redRolled[0]},${redRolled[1]},${redRolled[2]} scoring ${redScore} points. This round is a draw!`
 }
 
-
 const checkWin = (b,r) => {
     if (b <= 0) {
-        console.log('blue wins')
         blueWins()
     } else if (r <= 0) {
-        console.log('red wins')
         redWins()
     }
 }
@@ -191,18 +188,11 @@ const checkScore = (blue, red) => {
         drawMessage()
         return
     }
-    console.log(blue)
-    console.log(red)
-    console.log(blueScore)
-    console.log(redScore)
-    console.log(blueChips)
-    console.log(redChips)
 }
 
 
 const redWins = () => {
-    // print red wins and if like to restart
-    console.log('in redwins function')
+    winner.innerHTML = `Player red wins!`
     redChips = 0
     blueChips = 20
     gameFlag = false
@@ -210,8 +200,7 @@ const redWins = () => {
 }
 
 const blueWins = () => {
-    // print blue wins and like to restart
-    console.log('in bluewins function')
+    winner.innerHTML = `Player blue wins!`
     blueChips = 0
     redChips = 20
     gameFlag = false

@@ -5,9 +5,9 @@ body {
 .blue-chips {
     margin: auto;
     position: relative;
-    right: -100px;
+    right: -200px;
     width: 60px;
-    top: 485px;
+    top: 420px;
 }
 
 .chip-count-1 {
@@ -20,9 +20,9 @@ body {
 .red-chips {
     margin: auto;
     position: relative;
-    right: -100px;
+    right: -200px;
     width: 60px;
-   bottom: 80px;
+   bottom: 150px;
 }
 
 .chip-count-2 {
@@ -36,16 +36,16 @@ body {
     font-family: 'Raleway', sans-serif;
     position: relative;
     padding: 1%;
-    right: -250px;
-    top: 200px;
+    right: -400px;
+    top: 150px;
     margin: auto;
 }
 
 .dice {
     display: flex;
     justify-content: center;
-    margin-top: 70px;
-    margin-left: 245px;
+    margin-top: 0px;
+    margin-left: 440px;
 }
 
 .dice-1 {
@@ -77,11 +77,27 @@ body {
 
 .container {
     position: absolute;
-    margin-left: 70px;
+    margin-left: 150px;
     margin-right: 70px;
     width: 350px;
-    height: 400px;
-    bottom: 120px;
+    height: 200px;
+    bottom: 300px;
+}
+
+.container-2 {
+    font-family: 'Raleway', sans-serif;
+    text-align: center;
+    width: 350px;
+    margin-left: 130px;
+    
+}
+
+.container-3 {
+    font-family: 'Raleway', sans-serif;
+    text-align: center;
+    width: 350px;
+    margin-left: 130px;
+    bottom: 20px;
 }
 
 .description {
@@ -91,8 +107,9 @@ body {
 .restart-game {
     font-family: 'Raleway', sans-serif;
     position: relative;
-    bottom: -200px;
+    bottom: -150px;
     padding: 1%;
+    right: -50px
 }
 
 
