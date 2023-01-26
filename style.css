@@ -33,6 +33,7 @@ body {
 }
 
 .roll {
+    font-family: 'Raleway', sans-serif;
     position: relative;
     padding: 1%;
     right: -250px;
@@ -76,13 +77,18 @@ body {
 
 .container {
     position: absolute;
-    margin-left: 40px;
+    margin-left: 50px;
     width: 350px;
     height: 400px;
     bottom: 120px;
 }
 
+.description {
+    font-family: 'Raleway', sans-serif;
+}
+
 .restart-game {
+    font-family: 'Raleway', sans-serif;
     position: relative;
     bottom: -200px;
     padding: 1%;
