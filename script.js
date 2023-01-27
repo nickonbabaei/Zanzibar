@@ -159,20 +159,21 @@ const checkScore = (blue, red) => {
     
 
     // If 1,2,3 is rolled
-    if ((blue === [1,2,3]) && (red != blue)) {
+    if ((blueChips === 105) && (red != blue)) {
         blueChips -= 2
         redChips += 2
         blueChipCount.innerHTML = blueChips
         redChipCount.innerHTML = redChips
         return
-    } else if ((red === [1,2,3]) && (blue != red)) {
+    } else if ((redChips === 105) && (blue != red)) {
         redChips -= 2
         blueChips -= 2
         blueChipCount.innerHTML = blueChips
         redChipCount.innerHTML = redChips
         return
-    } else if ((red === [1,2,3]) && (blue === [1,2,3])) {
-        //draw, deal with later
+    } else if ((red === 105) && (blue === 105)) {
+        description.innerHTML = `Both players rolled 1,2,3. Wow, what are the odds!? This round is a draw`
+        return
     }
 
     // If no special combination rolled 
@@ -183,6 +184,7 @@ const checkScore = (blue, red) => {
         checkWin(blueChips,redChips)
         blueChipCount.innerHTML = blueChips
         redChipCount.innerHTML = redChips
+        return
     } else if (blueScore > redScore) {
         description.innerHTML = `Player blue rolled ${blueRolled[0]},${blueRolled[1]},${blueRolled[2]} scoring ${blueScore} points. Player red rolled ${redRolled[0]},${redRolled[1]},${redRolled[2]} scoring ${redScore} points. Player blue wins this round and player red gains a chip!`
         blueChips -= 1
@@ -190,6 +192,7 @@ const checkScore = (blue, red) => {
         checkWin(blueChips,redChips)
         blueChipCount.innerHTML = blueChips
         redChipCount.innerHTML = redChips
+        return
     } else if (blueScore === redScore) {
         drawMessage()
         return
