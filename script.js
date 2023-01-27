@@ -199,7 +199,7 @@ const checkScore = (blue, red) => {
 
 const redWins = () => {
     winner.innerHTML = `Player red wins! Restart game to play again.`
-    winner.style.color = 'black'
+    winner.style.opacity = '1'
     redChips = 0
     blueChips = 10
     gameFlag = false
@@ -207,7 +207,7 @@ const redWins = () => {
 
 const blueWins = () => {
     winner.innerHTML = `Player blue wins! Restart game to play again`
-    winner.style.color = 'black'
+    winner.style.opacity = '1'
     blueChips = 0
     redChips = 10
     gameFlag = false
@@ -218,7 +218,7 @@ const restartGame = () => {
     redChips = 5
     rollCount = 0
     roundCount = 1
-    winner.style.color = 'rgb(100, 231, 100)'
+    winner.style.opacity = '0'
     document.querySelector('.count').innerHTML = roundCount
     dice1.innerHTML = '?'
     dice2.innerHTML = '?'
