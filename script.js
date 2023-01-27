@@ -218,7 +218,7 @@ const restartGame = () => {
     redChips = 5
     rollCount = 0
     roundCount = 1
-    winner.style.color = 'white'
+    winner.style.color = 'rgb(100, 231, 100)'
     document.querySelector('.count').innerHTML = roundCount
     dice1.innerHTML = '?'
     dice2.innerHTML = '?'

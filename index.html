@@ -1,6 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <link href="https://fonts.googleapis.com/css2?family=Rubik+Mono+One&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Lato&family=Raleway:wght@500&display=swap" rel="stylesheet">
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,7 +10,41 @@
     <link rel="stylesheet" href="./indexStyle.css">
 </head>
 <body>
-    <h1>Zanzibar!</h1>
+    <h1>Zanzibar!<br></h1>
+    <div class="wrapped">
+        
+        <h3>How to play:</h3>
+        <p>In this 2 player version of Zanzibar, each player starts with 5 chips. The first player rolls 3 dice simultaneously to get the highest score possible, followed by the second player in hopes of getting a higher score than the first player. After both players roll, the round is complete. The player with the lowest score at the end of the round loses the round and receives a certain amount of chips from the other player, the number of chips depends on the winning hand. Once a player has gotten rid of all their chips, they win and the game is over.<br> </p>
+        <p> The scoring system is where things get interesting. The highest ranking combinations are listed below in descending order.</p>
+        <ol>
+            <li>4,5,6 (Zanzibar)</li>
+            <li>1,1,1</li>
+            <li>2,2,2</li>
+            <li>3,3,3</li>
+            <li>4,4,4</li>
+            <li>5,5,5</li>
+            <li>6,6,6</li>
+            <li>1,2,3</li>
+        </ol>
+        <p>All other combinations score as a points total by the sum of the three dice, described below.</p>
+        <ul>
+            <li>1 = 100 points</li>
+            <li>6 = 60 points</li>
+            <li>5 = 5 points</li>
+            <li>4 = 4 points</li>
+            <li>3 = 3 points</li>
+            <li>2 = 2 points</li>
+        </ul>
+        <p>The loser of each round recieves:</p>
+        <ul>
+            <li>4 chips if the highest throw is 4,5,6</li>
+            <li>3 chips if the highest throw is three-of-a-kind</li>
+            <li>2 chips if the highest throw is 1, 2, 3</li>
+            <li>1 chip if the highest throw is a points total</li>
+        </ul>
+        <a href=second.html><button id=“start”>Start Game</button></a>
+
+    </div>
     
 </body>
 </html>
