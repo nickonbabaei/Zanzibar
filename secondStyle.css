@@ -1,17 +1,162 @@
 body {
     margin: 3px;
     height: 100%;
-    background-image: url(https://wallpaper.dog/large/20486766.png)
-}
-.blue-chips {
-    margin: auto;
-    position: relative;
-    right: -200px;
-    width: 60px;
-    top: 420px;
+    background-image: url(https://c4.wallpaperflare.com/wallpaper/332/516/909/winter-the-sky-clouds-storm-wallpaper-preview.jpg);
+    background-size: cover;
 }
 
-.chip-count-1 {
+.entire-game {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-right: 30%;
+    margin-left: 30%;
+}
+
+.game-board {
+    display: flex;
+    flex-direction: column;
+    border: 6px solid black;
+    border-radius: 20px;
+    align-items: center;
+    justify-content: space-between;
+    padding-left: 5%;
+    padding-right: 5%;
+    height: 30rem;
+    width: 15rem;
+    background-color: #DCDCDC;
+    box-shadow: 4px 4px 60px rgba(0, 0, 0, 0.2);
+}
+
+.winner {
+    opacity: 0;
+}
+
+.blue-chip {
+    margin-top: 1rem;
+    position: relative;
+    text-align: center;
+}
+
+.blue-count {
+    position: absolute;
+    top: 30px;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    margin: auto;
+    font-size: 2em;
+    color: white;
+    text-shadow: 1px 1px black;
+}
+
+.red-chip {
+    margin-bottom: 1rem;
+    position: relative;
+    text-align: center;
+}
+
+.red-count {
+    position: absolute;
+    top: 30px;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    margin: auto;
+    font-size: 2em;
+    color: white;
+    text-shadow: 1px 1px black;
+}
+
+.dice {
+    display: flex;
+}
+
+.dice-1 {
+    border: 2px solid black;
+    border-radius: 5px;
+    text-align: center;
+    font-size: 30px;
+    background: white;
+    padding-left: 0.75rem;
+    padding-right: 0.75rem;
+    margin-right: 1rem;
+}
+
+.dice-2 {
+    border: 2px solid black;
+    border-radius: 5px;
+    text-align: center;
+    font-size: 30px;
+    background: white;
+    padding-left: 0.75rem;
+    padding-right: 0.75rem;
+    margin-right: 1rem;
+}
+
+.dice-3 {
+    border: 2px solid black;
+    border-radius: 5px;
+    text-align: center;
+    font-size: 30px;
+    background: white;
+    padding-left: 0.75rem;
+    padding-right: 0.75rem;
+}
+
+.container {
+    font-family: 'Raleway', sans-serif;
+    border: 6px solid black;
+    border-radius: 20px;
+    margin-top: 2rem;
+    background-color: #DCDCDC;
+}
+
+.description {
+    margin-left: 20px;
+    margin-right: 20px;
+}
+
+.container-3 {
+    font-family: 'Raleway', sans-serif;
+    font-size: 25px;
+}
+
+.buttons {
+    display: flex;
+    margin-bottom: 2rem;
+}
+
+.roll {
+    font-family: 'Raleway', sans-serif;
+    font-size: 20px;
+    margin-right: 1rem;
+    background: #DCDCDC;
+    width: 150px;
+    border: 3px solid black;
+    border-radius: 50px;
+    cursor: pointer;
+}
+
+.roll:hover {
+    box-shadow: 4px 4px 60px 8px rgba(0, 0, 0, 0.4);
+}
+
+.restart-game {
+    font-family: 'Raleway', sans-serif;
+    font-size: 20px;
+    background: #DCDCDC;
+    width: 150px;
+    border: 3px solid black;
+    border-radius: 50px;
+    cursor: pointer;
+}
+
+.restart-game:hover {
+    box-shadow: 4px 4px 60px 8px rgba(0, 0, 0, 0.4);
+}
+
+/* .chip-count-1 {
     position: absolute;
     color: white;
     top: 20px;
@@ -43,23 +188,7 @@ body {
     cursor: pointer;
 }
 
-.dice {
-    display: flex;
-    justify-content: center;
-    margin-top: 0px;
-    margin-left: 440px;
-}
 
-.dice-1 {
-    width: 50px;
-    height: 50px;
-    border: 2px solid black;
-    margin-right: 5px;
-    text-align: center;
-    font-size: 40px;
-    background: white;
-    
-}
 
 .dice-2 {
     width: 50px;
@@ -78,18 +207,6 @@ body {
     text-align: center;
     font-size: 40px;
     background: white;
-}
-
-.container {
-    font-family: 'Raleway', sans-serif;
-    position: absolute;
-    text-align: center;
-    margin-left: 150px;
-    margin-right: 70px;
-    width: 350px;
-    height: 200px;
-    bottom: 300px;
-    
 }
 
 .container-2 {
@@ -118,10 +235,4 @@ body {
     padding: 1%;
     right: -75px;
     
-}
-
-.winner {
-    opacity: 0;
-}
-
-
+} */

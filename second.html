@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <link href="https://fonts.googleapis.com/css2?family=Lato&family=Raleway:wght@500&display=swap" rel="stylesheet">
     <meta charset="UTF-8">
@@ -9,34 +10,46 @@
     <title>Zanzibar</title>
     <link rel="stylesheet" href="./secondStyle.css">
 </head>
+
 <body>
-    <div class="container-3">
-        <h2 class="round">Round <span class="count">1</span></h2>
-    </div>
-    <div class="blue-chips">
-        <img src="./images/blue.png" height="100"> 
-        <h3 class="chip-count-1">5</h3>
-    </div>
-    </div>
-    <div class="red-chips">
-        <img src="./images/red.png" height="100">
-        <h3 class="chip-count-2">5</h3>
+    <div class="entire-game">
+
+        <div class="container-3">
+            <h2 class="round">Round <span class="count">1</span></h2>
+        </div>
+
+        <div class="game-board">
+
+            <div class="blue-chip">
+                <img src="./images/blue.png" height="100">
+                <div class="blue-count">5</div>
+            </div>
+            
+            <div class="dice">
+                <div class="dice-1">?</div>
+                <div class="dice-2">?</div>
+                <div class="dice-3">?</div>
+            </div>
+
+            <div class="red-chip">
+                <img src="./images/red.png" height="100">
+                <div class="red-count">5</div>
+            </div>
+        </div>
+
+        <div class="container">
+            <p class="description">Player blue, roll to start the game!</p>
+        </div>
+
+        <div class="container-2">
+            <h3 class="winner">This is a filler so when it is time it appears</h3>
+        </div>
+        <div class="buttons">
+            <button class="roll"><span id="color-roll">Blues</span> roll</button>
+            <button class="restart-game">Restart Game</button>
+        </div>
 
     </div>
-    <div class="dice">
-        <div class="dice-1">?</div>
-        <div class="dice-2">?</div>
-        <div class="dice-3">?</div>
-    </div>
-    
-    <div class="container">
-        <p class="description">Player blue, roll to start the game!</p>
-    </div>
-    <div class="container-2">
-        <h3 class="winner">This is a filler so when it is time it appears</h3>
-    </div>
-    <button class="roll"><span id="color-roll">Blues</span> roll</button>
-    <button class="restart-game">Restart Game</button>
-    
 </body>
+
 </html>

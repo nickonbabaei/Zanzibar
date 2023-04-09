@@ -17,6 +17,8 @@
 * HTML
 * CSS
 * JavaScript
+* VS Code
+* Markdown
 ***
 #### Zanzibar is actually an island in Tanzania!
 ![Alt text](https://idsb.tmgrup.com.tr/ly/uploads/images/2022/02/01/179292.jpg "The real Zanzibar")
