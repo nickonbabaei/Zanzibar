@@ -16,7 +16,7 @@
 ### ***Technologies***
 * HTML
 * CSS
-* JavaScript
+* Vanilla JavaScript
 * VS Code
 * Markdown
 ***
